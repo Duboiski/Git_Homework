@@ -10,6 +10,7 @@
 # function('788') -> 0 букв
 # №2. Привяжите к предыдущей функции декоратор, который будет выводить информацию о том,
 # какой тип данных вы отправили: кортеж, список, число, строку или какой-то другой тип данных
+
 kr = (1, 2, 3, 'a', 'bc8?', 7, 8, 9)
 sp = [1, 2, 3, 'a', 'bc8?']
 ch = 788
@@ -17,13 +18,13 @@ st = '788'
 
 def my_decorator(fn):
     def wrapper(n):
-        if (isinstance(dt, tuple)):
+        if (isinstance(n, tuple)):
             print(f'В функцию  "my_data" отправлен кортеж')
-        elif (isinstance(dt, list)):
+        elif (isinstance(n, list)):
             print(f'В функцию  "my_data" отправлен список')
-        elif (isinstance(dt, int)):
+        elif (isinstance(n, int)):
             print(f'В функцию  "my_data" отправлен число')
-        elif (isinstance(dt, str)):
+        elif (isinstance(n, str)):
             print(f'В функцию  "my_data" отправлен строка')
         else:
             print('Неопредилённый формат данных')
@@ -34,40 +35,39 @@ def my_decorator(fn):
 
 @my_decorator
 def my_data(data):
-    if (isinstance(dt, tuple)):
+    if (isinstance(data, tuple)):
         n  = 0
-        for i in dt:
+        for i in data:
             if (isinstance(i, str)):
                 n += len(i)
-        return print(f'В кортеже {dt} длина всех строк ровна {n} символов')
+        return print(f'В кортеже {data} длина всех строк ровна {n} символов')
 
-    elif (isinstance(dt, list)):
+    elif (isinstance(data, list)):
         n_number = 0
         n_letter = 0
-        for i in dt:
-            # lst = dt[i]
+        for i in data:
             for j in str(i):
                 if j.isdigit():
                     n_number += 1
                 if j.isalpha():
                     n_letter += 1
-        return print(f'В списке - {dt} ==> {n_number} числа и {n_letter} буквы')
+        return print(f'В списке - {data} ==> {n_number} числа и {n_letter} буквы')
 
-    elif (isinstance(dt, int)):
+    elif (isinstance(data, int)):
         n = 0
-        for i in str(dt):
+        for i in str(data):
             if int(i)%2 != 0:
                 n += 1
-        return print(f'В числе - {dt} количество нечётных цифр = {n}')
+        return print(f'В числе - {data} количество нечётных цифр = {n}')
 
-    elif (isinstance(dt, str)):
+    elif (isinstance(data, str)):
         n_letter = 0
-        for i in dt:
+        for i in data:
             if i.isalpha():
                 n_letter += 1
-        return print(f'В строке - {dt} количество букв = {n_letter}')
+        return print(f'В строке - {data} количество букв = {n_letter}')
 
-print('Пустой ввод - выход из программы')
+print('Пустой ввод - выход из программы\n')
 while True:
     s = input('Что передать в функцию? \n'
               '1 - кортеж, 2 - список, 3 - число, 4 - строка \n'
@@ -98,10 +98,12 @@ while True:
         s2 = s2.split(',')
 
         for i in range(len(s2)):
-            if s2[i].isdigit():
-                s2[i] = int(s2[i])
+            x = s2[i].strip()
+            if x.isdigit():
+                s2[i] = int(x)
 
         dt = tuple(s2)
+
     elif s[0] == '[' and s[-1] == ']':
         s = s[1: -1]
         s2 = ''
@@ -118,5 +120,6 @@ while True:
         dt = list(s2)
     else:
         dt = str(s)
+    print()
 
     my_data(dt)
