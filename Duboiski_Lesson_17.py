@@ -12,13 +12,13 @@ class Person:
 
 class Car:
     make = 'Lada'
-    model = 'XRay'
+    model = 'XRay' 
     year = 2019
     def get_info(self):
         print('Вы выбрали автомобиль: ')
-        print(f'    Производитель: {self.make}')
-        print(f'    Модель: {self.model}')
-        print(f'    Год выпуска: {self.year}')
+        print(f'    Производитель:  {self.make}')
+        print(f'    Модель:         {self.model}')
+        print(f'    Год выпуска:    {self.year}')
 
 print('Задание 1')
 a = Person()
