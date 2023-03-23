@@ -37,6 +37,9 @@ class Birds(Animals): # птицы
     def __str__(self):
         return f'Животное {self.name} возрост {self.age} года'
 
+    def _areal(self):
+        return self.are_living() + '\n' + self.are_eating() + '\n' + self.are_moving()
+
 class Monkey(Animals): # обезьяны
     def __init__(self, name, age):
         self.name = name
@@ -52,6 +55,9 @@ class Monkey(Animals): # обезьяны
 
     def __str__(self):
         return f'Животное {self.name} возрост {self.age} года'
+
+    def _areal(self):
+        return self.are_living() + '\n' + self.are_eating() + '\n' + self.are_moving()
 
 class Feline(Animals): # кошачие
     def __init__(self, name, age):
@@ -69,6 +75,9 @@ class Feline(Animals): # кошачие
     def __str__(self):
         return f'Животное {self.name} возрост {self.age} года'
 
+    def _areal(self):
+        return self.are_living() + '\n' + self.are_eating() + '\n' + self.are_moving()
+
 class Fish(Animals): # рыбы
     def __init__(self, name, age):
         self.name = name
@@ -85,26 +94,33 @@ class Fish(Animals): # рыбы
     def __str__(self):
         return f'Животное {self.name} возрост {self.age} года'
 
+    def _areal(self):
+        return self.are_living() + '\n' + self.are_eating() + '\n' + self.are_moving()
+
 cockatoo = Birds('Какаду', 2)
 print(cockatoo)
-print(cockatoo.are_eating())
-print(cockatoo.are_living())
-print(cockatoo.are_moving())
+# print(cockatoo.are_eating())
+# print(cockatoo.are_living())
+# print(cockatoo.are_moving())
+print(cockatoo._areal())
 print()
 macaque = Monkey('Макака', 3.5)
 print(macaque)
-print(macaque.are_eating())
-print(macaque.are_living())
-print(macaque.are_moving())
+# print(macaque.are_eating())
+# print(macaque.are_living())
+# print(macaque.are_moving())
+print(macaque._areal())
 print()
 lion = Feline('Лев', 5)
 print(lion)
-print(lion.are_eating())
-print(lion.are_living())
-print(lion.are_moving())
+# print(lion.are_eating())
+# print(lion.are_living())
+# print(lion.are_moving())
+print(lion._areal())
 print()
 carp = Fish('Карп', 1.5)
 print(carp)
-print(carp.are_eating())
-print(carp.are_living())
-print(carp.are_moving())
+# print(carp.are_eating())
+# print(carp.are_living())
+# print(carp.are_moving())
+print(carp._areal())
