@@ -91,7 +91,7 @@ class Buy_House(Human):
             self.shopping = input('Желаете купить? (1-да, 2-нет)')
             if self.shopping == '1':
                 if my_house.price <= Evgeniy._Human__money:
-                    Evgeniy._Human__money = True
+                    Evgeniy._Human__house = True
                     print('Поздравляю, вы купили этот дом!')
                     break
                 else:
